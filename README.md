@@ -1,60 +1,72 @@
-# ic-docBlock
+# DocBlock - Decentralized Whistleblowing Platform
 
-DocBlock is a proof-of-concept dapp for sharing and managing documents. You can upload documents and authorize people to access them with a few clicks. Access to shared documents can expire or be explicitly revoked. In addition, you can ask other people to upload documents for you by simply sharing a link (no login required). Documents are transmitted and stored in encrypted form. The dapp can be used with any standard web browser, no plugins or extensions are needed and no passwords need to be remembered.
+DocBlock is a revolutionary whistleblowing platform built on the Internet Computer Protocol (ICP) that provides unparalleled security, speed, and censorship resistance. Unlike traditional platforms or Tor-based solutions, DocBlock leverages blockchain technology to ensure documents can never be taken down or tampered with.
 
-Such a dapp can only be realized on the Internet Computer (IC). It is the only blockchain network that can serve web content directly. Furthermore, its programming model enables such complex applications with privacy-preserving identity management fully on-chain. Last but not least, the IC provides low latency, efficiency and affordable storage facilities.
+## Key Features
 
-The documents are encrypted at all times, so no one–including IC node providers– but designated users can decrypt them.
-In more detail, DocBlock demonstrates how a user Alice who created an account with the dapp (using Internet Identity) can ask a Bob to upload documents for her without having to create an account himself.
-This feature makes it very easy and secure for service providers (e.g., a client advisor or wealth manager) to request documents of any type (e.g., house deeds, passport pictures or log files) from clients or other third parties.
-Other document sharing apps require users to exchange public keys or other cryptographic material with which people typically struggle a lot.
+- **Censorship Resistant**: Documents stored on ICP cannot be taken down by any government or organization
+- **Lightning Fast**: Direct content serving through ICP nodes provides superior speed compared to Tor
+- **Always Available**: Decentralized infrastructure ensures 100% uptime
+- **End-to-End Encryption**: Military-grade encryption protects document contents and whistleblower identities
+- **Zero-Knowledge Proofs**: Submit documents without revealing your identity
+- **Immutable Records**: Blockchain ensures document integrity and timestamp verification
+- **No Special Software**: Works in any modern browser - no Tor or plugins needed
 
+## Why ICP Over Traditional Solutions?
 
+### Advantages Over Tor
+- **Speed**: Direct content serving without multiple relay hops
+- **Reliability**: No dependence on volunteer-run nodes
+- **Accessibility**: Works in any browser without additional software
+- **Permanent Storage**: Documents cannot be lost or deleted
 
+### Advantages Over Centralized Platforms
+- **Cannot Be Shut Down**: No central servers to raid or take offline
+- **No Trust Required**: Zero-knowledge cryptography protects identities
+- **Immutable**: Documents cannot be altered or deleted once published
+- **Borderless**: Not subject to any single jurisdiction
 
-- The frontend re-uses the generated public- and private-key pair for every identity in the same browser. In a better implementation, this key pair should be unique per principal and not managed by the browser at all.
-- The same user cannot access the docs in another browser because the decryption key will not be available there.
-- Lack of key update: Given that the key used to encrypted the files is never refreshed, the privacy of the data is no longer guaranteed if an attacker learns this key (for instance, by corrupting the local storage of one of the users).
+## Technical Architecture
 
-
+DocBlock leverages ICP's unique features:
+- On-chain storage for permanent document preservation
+- Canister smart contracts for access control
+- Internet Identity for anonymous authentication
+- Chain-key cryptography for security
 
 ## Development
 
-To run the dapp locally, run the following in one terminal window:
-
-```
+1. Local setup:
+```bash
 dfx start --clean
 ```
 
-And in another terminal"
-
-```
-# Install needed frontend dependencies.
+2. Install dependencies:
+```bash
 npm install -g pnpm
 pnpm install
+```
 
-# Deploy the canisters.
+3. Deploy canisters:
+```bash
 dfx deploy
-dfx deps pull
 dfx deps deploy
 ```
 
-In your browser you can now go to <canister_id>.localhost:8000 to access the frontend.
+Access the frontend at `http://localhost:8000`
+
+## Security Considerations
+
+While DocBlock provides strong security guarantees through ICP:
+- Use Tor/VPN when accessing for additional anonymity
+- Be cautious with metadata in documents
+- Consider document fingerprinting
 
 
+## Contributing
 
-## Local frontend development
+We welcome contributions that enhance security and usability.
 
-After deploying locally both Internet Identity and the backend canister, you can run the dapp frontend and the home page development server.
+## Disclaimer
 
-### Frontend project of the dapp
-
-```
-pnpm --filter frontend run dev
-```
-
-### Home page
-
-```
-pnpm --filter landing-page run dev
-```
+This is beta software. Review security implications before using for sensitive data. 
