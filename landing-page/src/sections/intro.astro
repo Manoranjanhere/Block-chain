@@ -1,0 +1,139 @@
+---
+import Button from '../components/Button.astro';
+import AppIcon from '../components/AppIcon.astro';
+import IconShield from '../components/icons/IconShield.astro';
+import IconBlock from '../components/icons/IconBlock.astro';
+import IconShare from '../components/icons/IconShare.astro';
+import { DAPP_URL } from '../config/config';
+
+interface Props {
+	noIcons?: boolean;
+}
+
+const { noIcons } = Astro.props;
+
+const apps = [{
+  name: 'excel',
+  color: '#d8ece2',
+  position: [-.6,-.2],
+  rnd: Math.random(),
+  rnd2: Math.random(),
+}, {
+  name: 'word',
+  color: '#dbe8f7',
+  position: [.35,.35],
+  rnd: Math.random(),
+  rnd2: Math.random(),
+}, {
+  name: 'jpg',
+  color: '#e5ebf5',
+  position: [-.7,.35],
+  rnd: Math.random(),
+  rnd2: Math.random(),
+}, {
+  name: 'pdf',
+  color: '#fbeeee',
+  position: [-.4, .3],
+  rnd: Math.random(),
+  rnd2: Math.random(),
+}, {
+  name: 'mp3',
+  color: '#f8e8e6',
+  position: [.6,-.1],
+  rnd: Math.random(),
+  rnd2: Math.random(),
+}];
+---
+<section class="section section--intro" data-section="intro">
+  <div class="section__inner">
+    <h2 class="h1">
+      Decentralized Document Management <span class="highlight">Reimagined</span>
+    </h2>
+    <p class="section__intro p">
+      High Grade encryption meets blockchain security. Share and manage documents with confidence.
+    </p>
+    <div class="section__button" data-maincta>
+      <Button el="a" href={DAPP_URL} isCentered={true}>Launch BlockDocs</Button>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <IconShield />
+        <h3>End-to-End Encryption</h3>
+        <p>Your documents, your keys</p>
+      </div>
+      <div class="feature">
+        <IconBlock />
+        <h3>Blockchain Powered</h3>
+        <p>Immutable & decentralized</p>
+      </div>
+      <div class="feature">
+        <IconShare />
+        <h3>Secure Sharing</h3>
+        <p>Control who sees what</p>
+      </div>
+    </div>
+  </div>
+  <div class="intro-image">
+    <img src="/screenshot--main-bg.png" alt="Hero" class="section__image" />
+    <img src="/screenshot--main-fg.png" alt="Hero" class="section__image section__image--overlay" />
+  </div>
+</section>
+
+<style>
+  .section--intro {
+    padding-top: 10rem;
+  }
+
+  .section--intro .section__inner {
+    padding-top: var(--rs-section-stack);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    text-align: center;
+  }
+
+  .feature {
+    padding: 2rem;
+    background: var(--rc-card);
+    border-radius: 1rem;
+    transition: transform 0.2s;
+  }
+
+  .feature:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature h3 {
+    margin: 1rem 0 0.5rem;
+    color: var(--rc-text);
+    font-weight: 600;
+  }
+
+  .feature p {
+    color: var(--rc-text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .highlight {
+    background: var(--rc-gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .intro-image {
+    position: relative;
+    margin-top: var(--rs-section-stack);
+    --radius: 2.3rem;
+  }
+
+  .section__image {
+    display: block;
+    box-shadow: 0 0 6rem rgba(0,0,0,.08);
+    border-radius: var(--radius);
+    box-shadow: 0 0 0 1px #00000020;
+  }
+</style>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" class="logo-sprite">
+  <defs>
+    <linearGradient id="svg-logo-gradient" x1="0" x2="150" y1="0" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+
+    <mask id="svg-logo-mask">
+      <path d="M0 0h150v150H0z" fill="#fff"/>
+      <path d="M30 30h90v90H30z" />
+    </mask>
+
+    <path id="svg-logo-path" d="M75 15L120 40V90L75 115L30 90V40L75 15Z"/>
+    
+    <symbol viewBox="0 0 150 150" id="logo-symbol">
+      <use href="#svg-logo-path" fill="#4f46e5"/>
+      <use href="#svg-logo-path" fill="url(#svg-logo-gradient)" mask="url(#svg-logo-mask)"/>
+      <!-- Inner hexagon for depth -->
+      <path d="M75 45L95 58V82L75 95L55 82V58L75 45Z" fill="currentColor" opacity="0.3"/>
+      <!-- Center dot -->
+      <circle cx="75" cy="70" r="4" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<style>
+  /** 
+    the logo sprite is hidden like this, because if we use display: none; 
+    the gradient will not be rendered in the symbol
+  */
+  .logo-sprite {
+    opacity: 0;
+    display: block;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+const { class: className } = Astro.props;
+---
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 120 24" class={className}>
+  <!-- BitTracer Logo -->
+  <path 
+    fill="currentColor" 
+    d="M10 4h12c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+  />
+  <path 
+    fill="#4f46e5" 
+    d="M14 8v8l4-4-4-4z"
+  />
+  <!-- BitTracer Text -->
+  <text 
+    x="35" 
+    y="17" 
+    fill="currentColor" 
+    font-family="Arial, sans-serif" 
+    font-weight="600" 
+    font-size="16"
+  >
+    BitTracer
+  </text>
+</svg>
+
+<style>
+  svg {
+    height: 24px;
+    width: auto;
+  }
+</style>

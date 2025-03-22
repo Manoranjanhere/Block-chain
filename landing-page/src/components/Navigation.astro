@@ -1,0 +1,99 @@
+---
+import Button from '../components/Button.astro';
+import { DAPP_URL } from '../config/config';
+
+const BITTRACER_URL = 'https://bittracer.vercel.app/';
+---
+<nav class="nav">
+  <a class="nav__item is-active" href={BITTRACER_URL} target="_blank" rel="noopener noreferrer">BitTracer</a>
+  <a class="nav__item" href="#howto" data-nav>How it works</a>
+  <a class="nav__item" href="#sec" data-nav>Cryptography</a>
+  <Button class="nav__item nav__item--login" el="a" href={DAPP_URL}>Sign In</Button>
+</nav>
+
+<style is:global>
+  .nav {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav__item {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+  }
+
+  .nav__item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .nav__item.is-active {
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    position: relative;
+  }
+
+  .nav__item.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background: #4f46e5;
+    border-radius: 3px;
+  }
+
+  .nav__item--login {
+    margin-left: auto;
+    background: #4f46e5;
+    color: #ffffff;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .nav__item--login:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  }
+
+  @media (max-width: 600px) {
+    .nav {
+      padding: 1rem;
+    }
+
+    .nav__item {
+      display: none;
+    }
+
+    .nav__item--login {
+      display: block;
+      margin: 0 auto;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.5rem;
+    }
+  }
+</style>

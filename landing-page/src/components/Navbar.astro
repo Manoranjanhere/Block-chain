@@ -1,0 +1,30 @@
+---
+import Navigation from './Navigation.astro';
+---
+<div class="navbar">
+  <div class="design-width navbar__inner">
+    <Navigation />
+  </div>
+</div>
+
+<style>
+  .navbar {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    --bg: var(--rc-ui-background);
+    --color: var(--rc-on-ui-background);
+    background: var(--bg);
+    color: var(--color);
+    transition: 100ms background linear, 100ms color linear;
+  }
+
+  .navbar__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+</style>
